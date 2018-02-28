@@ -113,6 +113,8 @@ public protocol MessagesLayoutDelegate: AnyObject {
     ///
     /// The default value returned by this method is a size of `GGSize.zero`.
     func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize
+    
+    func messageContainerSizeForDefault(at indexPath: IndexPath) -> CGSize
 
     // MARK: - Text Messages
 
@@ -238,6 +240,10 @@ public extension MessagesLayoutDelegate {
 
     func shouldCacheLayoutAttributes(for message: MessageType) -> Bool {
         return false
+    }
+    
+    func messageContainerSizeForDefault(at indexPath: IndexPath) -> CGSize {
+        fatalError(MessageKitError.customDataUnresolvedSize)
     }
 
     // MARK: - Text Messages Defaults

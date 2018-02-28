@@ -109,7 +109,7 @@ extension MessagesCollectionViewFlowLayout {
             let height = messagesLayoutDelegate.heightForLocation(message: message, at: indexPath, with: maxWidth, in: messagesCollectionView)
             messageContainerSize = CGSize(width: width, height: height)
         case .custom:
-            fatalError(MessageKitError.customDataUnresolvedSize)
+            return messagesLayoutDelegate.messageContainerSizeForDefault(at: indexPath)
         }
 
         return messageContainerSize
